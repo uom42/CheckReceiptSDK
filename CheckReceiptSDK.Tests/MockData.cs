@@ -1,14 +1,17 @@
-﻿namespace CheckReceiptSDK.Tests
+﻿namespace CheckReceiptSDK.Tests;
+
+
+internal static class MockData
 {
-    internal static class MockData
-    {
-        public const string LoginSuccessResponse = @"
+
+
+    public const string LoginSuccessResponse = @"
         {
            ""email"": ""<email_used_for_registration>"",
            ""name"": ""<name_used_for_registration>""
         }";
 
-        public const string ReceiveReceiptContent = @"
+    public const string ReceiveReceiptContent = @"
         {
            ""document"": {""receipt"": {
            ""operationType"": 1,
@@ -42,5 +45,4 @@
            ""cashTotalSum"": 3900,
            ""shiftNumber"": 278
         }}}";
-    }
 }

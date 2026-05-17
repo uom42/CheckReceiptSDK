@@ -1,39 +1,46 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Dmitriy Bobrovskiy</Authors>
-    <Description>Library for getting receipts' information from Russian Federal Tax Service.
-Библиотека для получения информации по чекам от Федеральной Налоговой Службы (ФНС).</Description>
-    <RepositoryUrl>https://github.com/DmitriyBobrovskiy/CheckReceiptSDK</RepositoryUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <NeutralLanguage>ru-RU</NeutralLanguage>
-    <Version>2.0.0</Version>
-    <PackageTags>CheckReceipt, FNS, FederalTaxService</PackageTags>
-    <PackageProjectUrl>https://github.com/DmitriyBobrovskiy/CheckReceiptSDK</PackageProjectUrl>
-    <PackageLicenseExpression></PackageLicenseExpression>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageReleaseNotes>Updated architecture of FNS class.
-Changed structure of result got from federal tax service.
-Translated comments.
-Improved unit tests.
-</PackageReleaseNotes>
-  </PropertyGroup>
+	<Import Project="$(SolutionDir)\_Common\CommonProject.props" />
+	
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Authors>uom</Authors>
+		<Description>
+			Library for getting receipts' information from Russian Federal Tax Service.
+			Библиотека для получения информации по чекам от Федеральной Налоговой Службы (ФНС).
+			Based on Dmitriy Bobrovskiy https://github.com/DmitriyBobrovskiy/CheckReceiptSDK
+		</Description>
+		<RepositoryUrl>https://github.com/uom42/CheckReceiptSDK</RepositoryUrl>
+		<NeutralLanguage>ru-RU</NeutralLanguage>
+		<Version>10.0.3</Version>
+		<PackageTags>CheckReceipt, FNS, FederalTaxService</PackageTags>
+		<PackageProjectUrl>https://github.com/uom42/CheckReceiptSDK</PackageProjectUrl>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<!--
+		<PackageLicenseExpression></PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		
+		<PackageReleaseNotes>
+			Updated architecture of FNS class.
+			Changed structure of result got from federal tax service.
+			Translated comments.
+			Improved unit tests.
+		</PackageReleaseNotes>
+		-->
+	</PropertyGroup>
+	<!--
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>bin\Release\netstandard2.0\CheckReceiptSDK.xml</DocumentationFile>
+	</PropertyGroup>
+	-->
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" />
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\CheckReceiptSDK.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>
+			</PackagePath>
+		</None>
+	</ItemGroup>
 </Project>

@@ -1,0 +1,45 @@
+<Project>
+
+	<PropertyGroup>
+
+		<Nullable>enable</Nullable>
+		<LangVersion>Latest</LangVersion>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+
+		<CharacterSet>Unicode</CharacterSet>
+
+		<ImplicitUsings>enable</ImplicitUsings>
+
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		
+		<!--
+		<AssemblyTitle>$(Title)</AssemblyTitle>
+		<Description>$(Title)</Description>
+		<AssemblyDescription>$(Description)</AssemblyDescription>
+
+		<AssemblyProduct>$(Product)</AssemblyProduct>
+
+		<Authors>UOM</Authors>
+		<AssemblyCompany>$(Authors)</AssemblyCompany>
+
+		-->
+		<Today>$([System.DateTime]::Now.ToString("yy.M.d"))</Today>
+		<Year>$([System.DateTime]::Now.ToString("yyyy"))</Year>
+		<Copyright>©UOM 2010-$(Year)</Copyright>
+		<AssemblyCopyright>$(Copyright)</AssemblyCopyright>
+		<Version>$(Today).1</Version>
+		<ApplicationVersion>$(Version)</ApplicationVersion>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<FileVersion>$(Version)</FileVersion>
+		<ProductVersion>$(Version)</ProductVersion>
+
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+</Project>

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+	<File Path="_Common/CommonProject.props" />
+    <File Path=".github/workflows/dotnet-core.yml" />
+    <File Path=".github/workflows/publish.yml" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="CheckReceiptSDK.ConsoleTester/CheckReceiptSDK.ConsoleTester.csproj" Id="802cb68b-2f9f-4997-9b36-459fdac91dd9" />
+  <Project Path="CheckReceiptSDK.Tests/CheckReceiptSDK.Tests.csproj" />
+  <Project Path="CheckReceiptSDK/CheckReceiptSDK.csproj" />
+</Solution>

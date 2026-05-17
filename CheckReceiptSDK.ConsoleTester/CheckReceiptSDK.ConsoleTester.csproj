@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="$(SolutionDir)\_Common\CommonProject.props" />
+	
+	<PropertyGroup>
+		<TargetFramework>net11.0</TargetFramework>		
+		<OutputType>Exe</OutputType>
+
+		
+		<DefaultNamespace>CheckReceiptSDK.ConsoleTester</DefaultNamespace>		
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CheckReceiptSDK\CheckReceiptSDK.csproj" />
+	</ItemGroup>
+</Project>

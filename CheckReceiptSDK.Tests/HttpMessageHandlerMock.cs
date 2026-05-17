@@ -1,33 +1,33 @@
 ﻿using System.Net;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace CheckReceiptSDK.Tests
+
+namespace CheckReceiptSDK.Tests;
+
+
+internal class HttpMessageHandlerMock : HttpMessageHandler
 {
-    internal class HttpMessageHandlerMock : HttpMessageHandler
+
+    private readonly HttpStatusCode _statusCode;
+    private readonly string _content;
+
+
+    internal HttpMessageHandlerMock ( HttpStatusCode statusCode , string content )
     {
-        private HttpStatusCode _statusCode;
-        private string _content;
+        _statusCode = statusCode;
+        _content = content;
+    }
 
-        internal HttpMessageHandlerMock(HttpStatusCode statusCode, string content)
+    protected override Task<HttpResponseMessage> SendAsync ( HttpRequestMessage request , CancellationToken cancellationToken )
+    {
+        return Task.FromResult(new HttpResponseMessage()
         {
-            _statusCode = statusCode;
-            _content = content;
-        }
+            StatusCode = _statusCode ,
+            Content = new StringContent(_content)
+        });
+    }
 
-        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            return Task.FromResult(new HttpResponseMessage()
-            {
-                StatusCode = _statusCode,
-                Content = new StringContent(_content)
-            });
-        }
-
-        internal static HttpClient GetHttpClient(HttpStatusCode statusCode, string content)
-        {
-            return new HttpClient(new HttpMessageHandlerMock(statusCode, content));
-        }
+    internal static HttpClient GetHttpClient ( HttpStatusCode statusCode , string content )
+    {
+        return new HttpClient(new HttpMessageHandlerMock(statusCode , content));
     }
 }
